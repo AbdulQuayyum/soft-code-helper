@@ -1,0 +1,15 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "The server of the soft code helper project",
+  "main": "Server",
+  "scripts": {
+    "start": "nodemon Server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "h"
+  },
+  "author": "Abdul-Quayyum",
+  "license": "MIT"
+}
