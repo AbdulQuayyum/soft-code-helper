@@ -5,11 +5,11 @@ import { Configuration, OpenAIApi } from 'openai'
 
 dotenv.config()
 
-const Configuration = new Configuration({
+const configuration = new Configuration({
     apiKey: process.env.OPEN_AI_KEY,
 })
 
-const OpenAI = new OpenAIApi(Configuration)
+const OpenAI = new OpenAIApi(configuration)
 
 const app = express()
 app.use(cors())
@@ -45,4 +45,4 @@ app.post('/', async (req, res) => {
     }
 })
 
-app.listen(5000, () => console.log('Soft Code Helper is running'))
+app.listen(8080, () => console.log('Soft Code Helper is running'))

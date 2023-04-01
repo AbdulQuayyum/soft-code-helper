@@ -6,6 +6,13 @@ const ChatContainer = document.querySelector("#ChatContainer")
 
 let LoadInterval
 
+let PORT
+if (import.meta.env.VITE_STATUS === "development") {
+    PORT = import.meta.env.VITE_DEV_ENDPOINT_URL
+} else {
+    PORT = import.meta.env.VITE_PROD_ENDPOINT_URL
+}
+
 function ChatStripe(isAI, Value, UniqueID) {
     return (
         `
@@ -82,6 +89,31 @@ const HandleSubmit = async (e) => {
     const MessageDiv = document.getElementById(UniqueID)
 
     Loader(MessageDiv)
+
+    const response = await fetch(`${PORT}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            prompt: data.get('prompt')
+        })
+    })
+
+    clearInterval(LoadInterval)
+    MessageDiv.innerHTML = " "
+
+    if (response.ok) {
+        const data = await response.json()
+        const ParsedData = data.bot.trim()
+
+        TypeText(MessageDiv, ParsedData)
+    } else {
+        const err = await response.text()
+
+        MessageDiv.innerHTML = "Something went wrong"
+        alert(err)
+    }
 }
 
 Form.addEventListener("submit", HandleSubmit)
