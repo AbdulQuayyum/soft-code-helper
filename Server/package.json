@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "The server of the soft code helper project",
   "main": "Server",
+  "type": "module",
   "scripts": {
     "start": "nodemon Server.js"
   },
   "repository": {
     "type": "git",
-    "url": "h"
+    "url": "https://github.com/AbdulQuayyum/soft-code-helper/tree/Source/Server"
   },
   "author": "Abdul-Quayyum",
   "license": "MIT",

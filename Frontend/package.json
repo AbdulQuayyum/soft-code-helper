@@ -8,6 +8,10 @@
     "build": "vite build",
     "preview": "vite preview"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AbdulQuayyum/soft-code-helper/tree/Source/Frontend"
+  },
   "devDependencies": {
     "vite": "^4.2.0"
   }
